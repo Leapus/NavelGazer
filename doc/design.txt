@@ -1,0 +1,42 @@
+NavelGazer design document
+
+
+Ok, so I looked at the remote desktop options available and they suck. Most of them are cheesy browser-based options
+that don't lend themselves to unattended server-side use. They may require a subscription to a service. They
+are often feature-limited trialware. They might require the involvement of cloud services, and why would you want
+a built-in middleman where you are trying to control your own computer? The best of the crop might be the VNC
+codebase, but it's lacking modularity and expandability when remote control lends itself to lots of opportunities
+for modular features.
+
+Components
+
+Let's enumerate the components involved in a highly flexible Remote Access solution.
+
+- A Plugin API common to all of the plugins, establishing a common interface for versioning and querying other interfaces COM-style
+- A console module for keyboard and mouse I/O, one to read client, one to write server
+- A screen-scraping module to read the client display framebuffers
+- CODEC modules to transfer video from the server to the client
+- Authentication modules implementing any of a variety of authentication standards anywhere from simple
+    passphrases, to PAM, or certificates, or key dongles
+
+VNC is quite old, and it might be interesting to look at more modern techniques for processing video, especially the use of
+hardware CODECs to highly compress and stream video with high efficiency.
+
+
+PLUGIN API
+
+Version Numbers: can be a pair of integers, one major, one minor. Things with different major numbers may be incompatible.
+    Things with the same major number must be at least backward compatible.
+
+GUID: Plugins can be uniquely identified using a GUID generated from a combination of the current date/time along with
+    some entropy to discourage them from ever colliding.
+
+void *QueryInterface(const std::string &name){
+    Create an instance of the named object and return a pointer to it. It can be C++ deleted to discard it.
+}
+
+The common plugin interface object can provide the application version for which it was built in order to decide
+compatibility upfront and permit rejecting a plugin if it's not compatible. It should be simple enough to be
+hopefully immutable or at least backward-compatible forever.
+
+
