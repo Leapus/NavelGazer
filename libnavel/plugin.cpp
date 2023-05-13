@@ -5,7 +5,11 @@
 using namespace std::string_literals;
 using namespace leapus::navelgazer;
 
-plugin_spec null_plugin_spec={};
+const plugin_spec leapus::navelgazer::null_plugin_spec={};
+
+bool operator!(const leapus::navelgazer::plugin_spec &ps){ 
+    return !(ps==null_plugin_spec);
+ }
 
 plugin::plugin(const std::filesystem::path &path):
     m_library(path){

@@ -7,11 +7,11 @@
 
 #include <string>
 #include "pluginfwd.hpp"
-#include "log.hpp"
+#include "navelgazer/pluginapi/pluginlog.hpp"
 
 namespace leapus::navelgazer::pluginapi{
 
-class logger{
+class plugin_logger{
 public:
     //informative notice issued by a plugin
     static void info(const leapus::navelgazer::interface &, const std::string &msg );

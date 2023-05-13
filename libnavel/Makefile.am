@@ -1,4 +1,3 @@
-AM_CXXFLAGS = -std=c++17
-
+include Makefile.am.common.inc
 lib_LTLIBRARIES = libnavel.la
-libnavel_la_SOURCES = plugin.cpp rtconfig.cpp ld.cpp
+libnavel_la_SOURCES = plugin.cpp rtconfig.cpp ld.cpp log.cpp
