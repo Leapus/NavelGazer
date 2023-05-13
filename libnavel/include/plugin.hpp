@@ -57,7 +57,6 @@ public:
 
     plugin_spec *dependencies() const;
     bool running() const;
-
 };
 
 class plugin_error:public navel_error{

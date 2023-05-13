@@ -5,6 +5,11 @@
 using namespace std::string_literals;
 using namespace leapus::navelgazer;
 
+plugin::~plugin(){
+    if(m_running)
+        shutdown();
+}
+
 const plugin_spec leapus::navelgazer::null_plugin_spec={};
 
 bool operator!(const leapus::navelgazer::plugin_spec &ps){ 

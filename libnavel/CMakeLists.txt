@@ -1,0 +1,5 @@
+cmake_minimum_required(VERSION 3.18)
+project(libnavel)
+include_directories(include)
+add_library( navel SHARED concurrent.cpp ld.cpp log.cpp plugin.cpp rtconfig.cpp )
+target_link_libraries(navel dl)

@@ -1,0 +1,5 @@
+cmake_minimum_required(VERSION 3.18)
+project(server)
+include_directories(include libnavel/include)
+add_executable(navelservice main.cpp)
+target_link_libraries(navelservice navel navelpluginapi)
