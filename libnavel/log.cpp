@@ -4,7 +4,7 @@
 
 
 using namespace std;
-using namespace leapus::navelgazer;
+using namespace leapus::concurrent;
 
 
 void leapus::navelgazer::log::info(const std::string &msg){

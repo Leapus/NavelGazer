@@ -10,6 +10,7 @@ add_subdirectory(libnavel)
 add_subdirectory(libnavelpluginapi)
 add_subdirectory(server)
 add_subdirectory(client)
+add_subdirectory(plugins)
 
 add_dependencies(navelpluginapi navel)
 add_dependencies(navelservice navel navelpluginapi)

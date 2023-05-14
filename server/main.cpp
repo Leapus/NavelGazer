@@ -1,9 +1,9 @@
-#include "log.hpp"
+#include "navelgazer/libnavel/log.hpp"
 
 using namespace leapus::navelgazer;
 
 static void banner(){
-    log::info("");
+    //log::info(   );
 }
 
 int main(){

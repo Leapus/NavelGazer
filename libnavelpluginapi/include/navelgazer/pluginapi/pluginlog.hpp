@@ -1,12 +1,11 @@
 #pragma once
-
 /*
     A central place to put handling of informational, console,
     and debug notices
 */
 
 #include <string>
-#include "pluginfwd.hpp"
+#include "navelgazer/libnavel/pluginfwd.hpp"
 #include "navelgazer/pluginapi/pluginlog.hpp"
 
 namespace leapus::navelgazer::pluginapi{

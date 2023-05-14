@@ -59,17 +59,6 @@ public:
     bool running() const;
 };
 
-class plugin_error:public navel_error{
-public:
-    using navel_error::navel_error;
- };
-
-class plugin_missing:public plugin_error{
-
-public:
-    using plugin_error::plugin_error;
-};
-
 class plugin_registry{
     using guid_map_type=std::map<guid_type,plugin *>;
     using service_map_type=std::multimap<std::string,plugin *>;

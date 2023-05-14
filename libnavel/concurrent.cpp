@@ -1,7 +1,7 @@
 #include "concurrent.hpp"
 
 
-using namespace leapus::navelgazer;
+using namespace leapus::concurrent;
 
 
 critical_section::lock_type critical_section::lock(){

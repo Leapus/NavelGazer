@@ -1,0 +1,5 @@
+cmake_minimum_required(VERSION 3.18)
+project(plugin_sshtransport)
+include_directories(include ../../libnavelpluginapi/include)
+add_library( sshtransport SHARED plugin.cpp )
+target_link_libraries(sshtransport navelpluginapi ssh)

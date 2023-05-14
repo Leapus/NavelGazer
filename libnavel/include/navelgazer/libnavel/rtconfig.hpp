@@ -7,6 +7,7 @@
 
 #include <vector>
 #include <string>
+#include "types.hpp"
 #include "exception.hpp"
 
 namespace leapus::navelgazer::config{
@@ -21,6 +22,12 @@ public:
     arg_collision_error(const std::string &arg);
 };
 
+//Thrown when an expected argument is absent
+class arg_missing_error:public arg_error{
+public:
+    using arg_error::arg_error;
+};
+
 //Keep track of whether each argument has been claimed in order to detect
 //extraneous arguments, or argument name collisions amongst plugins
 struct Arg{
@@ -33,14 +40,19 @@ struct Arg{
 class Configuration{
 public:
     using args_collection_type = std::vector<Arg>;
+    using args_const_iterator_type = args_collection_type::const_iterator;
 
 private:
     args_collection_type m_args;
 
 public:
     Configuration(int argc, char *argv[]);
-    args_collection_type &args();
-    const args_collection_type &args() const;
+    void demand_next(args_const_iterator_type &it);
+
+    virtual args_collection_type &args();
+    virtual const args_collection_type &args() const;
+    virtual version_type version() const = 0;
+    virtual std::string app_name() const = 0;
 };
 
 }

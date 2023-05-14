@@ -5,6 +5,18 @@ namespace leapus::navelgazer{
 class plugin;
 class plugin_registry;
 
+
+class plugin_error:public navel_error{
+public:
+    using navel_error::navel_error;
+ };
+
+class plugin_missing:public plugin_error{
+
+public:
+    using plugin_error::plugin_error;
+};
+
 //A plugin dependency
 //A 0 GUID means we will settle for any matching service by name
 //An empty service means we demand a specific GUID

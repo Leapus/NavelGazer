@@ -1,6 +1,6 @@
 #include <iostream>
-#include "plugin.hpp"
-#include "log.hpp"
+#include "navelgazer/libnavel/plugin.hpp"
+#include "navelgazer/libnavel/log.hpp"
 #include "navelgazer/pluginapi/pluginlog.hpp"
 
 using namespace std;

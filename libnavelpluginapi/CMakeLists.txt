@@ -4,4 +4,3 @@ include_directories(include ../libnavel/include)
 
 add_library( navelpluginapi SHARED plugin_log.cpp )
 target_link_libraries(navelpluginapi navel)
-

@@ -18,6 +18,17 @@ Configuration::Configuration(int argc, char *argv[]){
     std::copy(&argv[0], &argv[argc], m_args.begin());
 }
 
+//Advance the iterator to the next argument and throw if it does not exist
+void Configuration::demand_next(args_const_iterator_type &it){
+    if(m_args.empty())
+        throw arg_missing_error("No arguments provided");
+
+    auto prev=it;
+
+    if(++it == m_args.end())
+        throw arg_missing_error("Expected argument after "s + prev->value);
+}
+
 Configuration::args_collection_type &Configuration::args(){ return m_args; }
 const Configuration::args_collection_type &Configuration::args() const{ return m_args; }
 
